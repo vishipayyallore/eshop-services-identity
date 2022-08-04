@@ -348,3 +348,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Source/IdentityServer.API/keys/is-signing-key-EC0CF8FEAB6AA9BEBECA8D9EDE8DCE5C.json
