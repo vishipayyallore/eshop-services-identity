@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using UseIden.DemoAPI.Models;
 
 namespace UseIden.DemoAPI.Controllers
 {

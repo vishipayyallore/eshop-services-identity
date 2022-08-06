@@ -1,4 +1,4 @@
-namespace UseIden.DemoAPI
+namespace UseIden.DemoAPI.Models
 {
     public class WeatherForecast
     {
