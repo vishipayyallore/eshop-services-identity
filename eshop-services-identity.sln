@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.API", "Source\IdentityServer.API\IdentityServer.API.csproj", "{F23CB4B3-182F-46CA-BFD0-C46723B75263}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D6AEC174-C379-4B9A-A92E-67E676020634}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseIden.DemoAPI", "Tests\UseIden.DemoAPI\UseIden.DemoAPI.csproj", "{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +33,17 @@ Global
 		{F23CB4B3-182F-46CA-BFD0-C46723B75263}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F23CB4B3-182F-46CA-BFD0-C46723B75263}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F23CB4B3-182F-46CA-BFD0-C46723B75263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F23CB4B3-182F-46CA-BFD0-C46723B75263} = {719416B4-8B2C-4ADC-B202-89F1792D1D66}
+		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5} = {D6AEC174-C379-4B9A-A92E-67E676020634}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FEB3920-3F7A-4EA7-8A4E-08A31A1CFD97}
