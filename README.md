@@ -2,6 +2,10 @@
 
 Identity Service for the eShop solution
 
+## Retrieving Discovery Information
+
+### Discovery Information using https://localhost:5001/.well-known/openid-configuration
+
 ![Openid Configuration |150x150](./Documentation/Images/Openid_Configuration.PNG)
 
 ## Retrieving Access Token

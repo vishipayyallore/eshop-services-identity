@@ -1,5 +1,5 @@
 ﻿using IdentityModel.Client;
-
+using System.Text.Json;
 using static System.Console;
 
 // discover endpoints from metadata
@@ -28,6 +28,21 @@ if (tokenResponse.IsError)
 }
 
 WriteLine(tokenResponse.AccessToken);
+
+// call api
+var apiClient = new HttpClient();
+apiClient.SetBearerToken(tokenResponse.AccessToken);
+
+var response = await apiClient.GetAsync("https://localhost:7062/api/Identity");
+if (!response.IsSuccessStatusCode)
+{
+    WriteLine(response.StatusCode);
+}
+else
+{
+    var doc = JsonDocument.Parse(await response.Content.ReadAsStringAsync()).RootElement;
+    WriteLine(JsonSerializer.Serialize(doc, new JsonSerializerOptions { WriteIndented = true }));
+}
 
 WriteLine("\n\nPress any key ...");
 ReadKey();
