@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D6AEC174
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseIden.DemoAPI", "Tests\UseIden.DemoAPI\UseIden.DemoAPI.csproj", "{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseIden.DemoAPIClient", "Tests\UseIden.DemoAPIClient\UseIden.DemoAPIClient.csproj", "{B16DAB29-3E13-4080-9982-66FA2BDD3A10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B16DAB29-3E13-4080-9982-66FA2BDD3A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16DAB29-3E13-4080-9982-66FA2BDD3A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16DAB29-3E13-4080-9982-66FA2BDD3A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16DAB29-3E13-4080-9982-66FA2BDD3A10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F23CB4B3-182F-46CA-BFD0-C46723B75263} = {719416B4-8B2C-4ADC-B202-89F1792D1D66}
 		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5} = {D6AEC174-C379-4B9A-A92E-67E676020634}
+		{B16DAB29-3E13-4080-9982-66FA2BDD3A10} = {D6AEC174-C379-4B9A-A92E-67E676020634}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FEB3920-3F7A-4EA7-8A4E-08A31A1CFD97}
