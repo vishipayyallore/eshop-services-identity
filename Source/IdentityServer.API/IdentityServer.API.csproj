@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>deb67ce8-eshop-services-products</UserSecretsId>
   </PropertyGroup>
   
   <ItemGroup>
