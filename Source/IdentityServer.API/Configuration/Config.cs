@@ -13,7 +13,7 @@ public static class Config
     public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {
-            new ApiScope(name: "apitest", displayName: "Test API")
+            new ApiScope(name: "apitestscope", displayName: "Test API")
         };
 
     public static IEnumerable<Client> Clients =>
@@ -21,7 +21,7 @@ public static class Config
         {
             new Client
             {
-                ClientId = "client-apitest",
+                ClientId = "apitest-clientid",
 
                 // no interactive user, use the clientid/secret for authentication
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -33,7 +33,7 @@ public static class Config
                 },
 
                 // scopes that client has access to
-                AllowedScopes = { "apitest" }
+                AllowedScopes = { "apitestscope" }
             }
         };
 
