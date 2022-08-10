@@ -24,6 +24,8 @@ CONTENT-TYPE application/x-www-form-urlencoded
 
 ![Access Token Retrieval |150x150](./Documentation/Images/Access_Token_Retrieval.PNG)
 
+![Claims from Access Token |150x150](./Documentation/Images/Claims_1.PNG)
+
 ```
 dotnet new isempty -n IdentityServer.API
 

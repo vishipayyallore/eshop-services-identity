@@ -16,9 +16,9 @@ var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCr
 {
     Address = disco.TokenEndpoint,
 
-    ClientId = "client-apitest",
+    ClientId = "apitest-clientid",
     ClientSecret = "NoPassword@1",
-    Scope = "apitest"
+    Scope = "apitestscope"
 });
 
 if (tokenResponse.IsError)
