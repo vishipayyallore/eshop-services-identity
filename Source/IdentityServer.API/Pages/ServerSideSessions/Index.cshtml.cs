@@ -46,7 +46,8 @@ namespace IdentityServer.API.Pages.ServerSideSessions
 
         public async Task<IActionResult> OnPost()
         {
-            await _sessionManagementService.RemoveSessionsAsync(new RemoveSessionsContext { 
+            await _sessionManagementService.RemoveSessionsAsync(new RemoveSessionsContext
+            {
                 SessionId = SessionId,
             });
             return RedirectToPage("/ServerSideSessions/Index", new { Token, Filter, Prev });
