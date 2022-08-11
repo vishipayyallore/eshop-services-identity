@@ -26,6 +26,10 @@ CONTENT-TYPE application/x-www-form-urlencoded
 
 ![Claims from Access Token |150x150](./Documentation/Images/Claims_1.PNG)
 
+## Web Application using Identity Service
+
+![Web Application Logging into using Identity Service |150x150](./Documentation/Images/OIDC_WebClient.PNG)
+
 ```
 dotnet new isempty -n IdentityServer.API
 
