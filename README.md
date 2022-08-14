@@ -2,6 +2,18 @@
 
 Identity Service for the eShop solution
 
+## Microsoft SQL Server in a Docker Container
+
+**Reference(s):**
+
+> 1. [https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-configure?view=sql-server-ver16&pivots=cs1-bash](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-configure?view=sql-server-ver16&pivots=cs1-bash)
+
+```bash
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourStrongPassword" -p 1433:1433 --name identity-sqlserver --hostname identity-sqlserver -e 'MSSQL_PID=Standard' -v eshop-idensqlvolume:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2022-latest
+```
+
+![Openid Configuration |150x150](./Documentation/Images/SQLServerInDockerContainer.PNG)
+
 ## Retrieving Discovery Information
 
 ### Discovery Information using https://localhost:5001/.well-known/openid-configuration
