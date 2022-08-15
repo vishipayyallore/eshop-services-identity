@@ -25,7 +25,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseIden.DemoAPI", "Tests\Us
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseIden.DemoAPIClient", "Tests\UseIden.DemoAPIClient\UseIden.DemoAPIClient.csproj", "{B16DAB29-3E13-4080-9982-66FA2BDD3A10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseIden.DemoWeb", "Tests\UseIden.DemoWeb\UseIden.DemoWeb.csproj", "{4998C599-33AD-477E-A1D2-C71B67E2FB05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseIden.DemoWeb", "Tests\UseIden.DemoWeb\UseIden.DemoWeb.csproj", "{4998C599-33AD-477E-A1D2-C71B67E2FB05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{FABE801A-89E1-4D47-ACD5-DA6771DE2846}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\A.txt = Scripts\A.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{A51F1BDB-5D4D-45B8-8599-1F67C8EBBA84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{3635B738-5A9D-4121-9F3E-B857123368A4}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Images\Access_Token_Retrieval.PNG = Documentation\Images\Access_Token_Retrieval.PNG
+		Documentation\Images\Claims_1.PNG = Documentation\Images\Claims_1.PNG
+		Documentation\Images\OIDC_WebClient.PNG = Documentation\Images\OIDC_WebClient.PNG
+		Documentation\Images\Openid_Configuration.PNG = Documentation\Images\Openid_Configuration.PNG
+		Documentation\Images\SQLServerInDockerContainer.PNG = Documentation\Images\SQLServerInDockerContainer.PNG
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +74,7 @@ Global
 		{2D174A39-DC7B-45AF-AE2F-E465EF4846D5} = {D6AEC174-C379-4B9A-A92E-67E676020634}
 		{B16DAB29-3E13-4080-9982-66FA2BDD3A10} = {D6AEC174-C379-4B9A-A92E-67E676020634}
 		{4998C599-33AD-477E-A1D2-C71B67E2FB05} = {D6AEC174-C379-4B9A-A92E-67E676020634}
+		{3635B738-5A9D-4121-9F3E-B857123368A4} = {A51F1BDB-5D4D-45B8-8599-1F67C8EBBA84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FEB3920-3F7A-4EA7-8A4E-08A31A1CFD97}

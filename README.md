@@ -42,6 +42,12 @@ CONTENT-TYPE application/x-www-form-urlencoded
 
 ![Web Application Logging into using Identity Service |150x150](./Documentation/Images/OIDC_WebClient.PNG)
 
+## External Login using Google
+
+![External Login using Google |150x150](./Documentation/Images/ExternalLoginGoogle.PNG)
+
+## Duende Identity Service
+
 ```
 dotnet new isempty -n IdentityServer.API
 
