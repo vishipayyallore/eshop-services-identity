@@ -1,4 +1,4 @@
-# eshop-services-identity
+# eshop-services-identity micro service
 
 Identity Service for the eShop solution
 
@@ -42,8 +42,12 @@ CONTENT-TYPE application/x-www-form-urlencoded
 
 ![Web Application Logging into using Identity Service |150x150](./Documentation/Images/OIDC_WebClient.PNG)
 
-## External Login using Google
+## External Logins
 
+**Two External Logins are configured:**
+![External Login using Google |150x150](./Documentation/Images/TwoExternalLogins.PNG)
+
+**External Login using Google**
 ![External Login using Google |150x150](./Documentation/Images/ExternalLoginGoogle.PNG)
 
 ## Duende Identity Service

@@ -7,7 +7,7 @@ namespace UseIden.DemoAPI.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class IdentityController : ControllerBase
+    public class UseIdentityController : ControllerBase
     {
 
         [HttpGet]
