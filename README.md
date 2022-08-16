@@ -1,4 +1,4 @@
-# eshop-services-identity
+# eshop-services-identity micro service
 
 Identity Service for the eShop solution
 
