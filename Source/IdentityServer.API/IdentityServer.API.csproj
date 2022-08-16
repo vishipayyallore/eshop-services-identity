@@ -6,6 +6,7 @@
     <UserSecretsId>deb67ce8-eshop-services-products</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
   
   <ItemGroup>
