@@ -26,7 +26,7 @@ public static class Config
     public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {
-            new ApiScope(name: "apitestscope", displayName: "Test API")
+            new ApiScope(name: "apitestscope", displayName: "eShop API")
         };
 
     public static IEnumerable<Client> Clients =>
@@ -67,11 +67,14 @@ public static class Config
                 // where to redirect to after logout
                 PostLogoutRedirectUris = { "https://localhost:7019/signout-callback-oidc" },
 
+                AllowOfflineAccess = true,
+
                 AllowedScopes = new List<string>
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
-                    "verification"
+                    "verification",
+                    "apitestscope"
                 }
             }
         };

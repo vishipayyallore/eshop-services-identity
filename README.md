@@ -50,6 +50,12 @@ CONTENT-TYPE application/x-www-form-urlencoded
 **External Login using Google**
 ![External Login using Google |150x150](./Documentation/Images/ExternalLoginGoogle.PNG)
 
+## Web Application invoking protected Web API using Access Token
+
+**Web Application invoking protected Web API using Access Token**
+![Web Application invoking protected Web API using Access Token |150x150](./Documentation/Images/WebAppInovkingAPI.PNG)
+
+
 ## Duende Identity Service
 
 ```

@@ -33,7 +33,7 @@ WriteLine(tokenResponse.AccessToken);
 var apiClient = new HttpClient();
 apiClient.SetBearerToken(tokenResponse.AccessToken);
 
-var response = await apiClient.GetAsync("https://localhost:7062/api/Identity");
+var response = await apiClient.GetAsync("https://localhost:7062/api/UseIdentity");
 if (!response.IsSuccessStatusCode)
 {
     WriteLine(response.StatusCode);
