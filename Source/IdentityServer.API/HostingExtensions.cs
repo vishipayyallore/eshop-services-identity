@@ -13,7 +13,7 @@ internal static class HostingExtensions
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         var migrationsAssembly = typeof(Program).Assembly.GetName().Name;
-        const string connectionString = @"Data Source=eshop-Identity.db";
+        const string connectionString = @"Data Source=./Store/eshop-Identity.db";
 
         // uncomment if you want to add a UI
         builder.Services.AddRazorPages();
