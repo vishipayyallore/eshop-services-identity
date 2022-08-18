@@ -25,7 +25,7 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Clear();
         options.Scope.Add("openid");
         options.Scope.Add("profile");
-        options.Scope.Add("apitestscope");
+        options.Scope.Add("eshopapiscope");
         options.Scope.Add("offline_access");
 
         options.GetClaimsFromUserInfoEndpoint = true;
