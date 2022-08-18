@@ -18,7 +18,7 @@ var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCr
 
     ClientId = "api-clientid",
     ClientSecret = "NoPassword@1",
-    Scope = "apitestscope"
+    Scope = "eshopapiscope"
 });
 
 if (tokenResponse.IsError)

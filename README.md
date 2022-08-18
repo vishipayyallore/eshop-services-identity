@@ -55,6 +55,10 @@ CONTENT-TYPE application/x-www-form-urlencoded
 **Web Application invoking protected Web API using Access Token**
 ![Web Application invoking protected Web API using Access Token |150x150](./Documentation/Images/WebAppInovkingAPI.PNG)
 
+## SQLite as a Database Provider for Identity Service
+
+**SQLite as a Database Provider for Identity Service**
+![SQLite as a Database Provider for Identity Service |150x150](./Documentation/Images/EFCore_SQLite.PNG)
 
 ## Duende Identity Service
 

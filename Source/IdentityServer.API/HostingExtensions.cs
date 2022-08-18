@@ -1,5 +1,8 @@
 using Duende.IdentityServer;
+using Duende.IdentityServer.EntityFramework.DbContexts;
+using Duende.IdentityServer.EntityFramework.Mappers;
 using IdentityServer.API.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
@@ -9,17 +12,23 @@ internal static class HostingExtensions
 {
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
+        var migrationsAssembly = typeof(Program).Assembly.GetName().Name;
+        const string connectionString = @"Data Source=./Store/eshop-Identity.db";
+
         // uncomment if you want to add a UI
         builder.Services.AddRazorPages();
 
-        builder.Services.AddIdentityServer(options =>
+        builder.Services.AddIdentityServer()
+            .AddConfigurationStore(options =>
             {
-                // https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/api_scopes#authorization-based-on-scopes
-                options.EmitStaticAudienceClaim = true;
+                options.ConfigureDbContext = b => b.UseSqlite(connectionString,
+                    sql => sql.MigrationsAssembly(migrationsAssembly));
             })
-            .AddInMemoryIdentityResources(Config.IdentityResources)
-            .AddInMemoryApiScopes(Config.ApiScopes)
-            .AddInMemoryClients(Config.Clients)
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = b => b.UseSqlite(connectionString,
+                    sql => sql.MigrationsAssembly(migrationsAssembly));
+            })
             .AddTestUsers(TestUsers.Users);
 
         builder.Services.AddAuthentication()
@@ -60,6 +69,8 @@ internal static class HostingExtensions
             app.UseDeveloperExceptionPage();
         }
 
+        InitializeDatabase(app);
+
         // uncomment if you want to add a UI
         app.UseStaticFiles();
         app.UseRouting();
@@ -72,4 +83,54 @@ internal static class HostingExtensions
 
         return app;
     }
+
+    private static void InitializeDatabase(IApplicationBuilder app)
+    {
+        using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+        {
+            serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+
+            var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
+            context.Database.Migrate();
+            if (!context.Clients.Any())
+            {
+                foreach (var client in Config.Clients)
+                {
+                    context.Clients.Add(client.ToEntity());
+                }
+                context.SaveChanges();
+            }
+
+            if (!context.IdentityResources.Any())
+            {
+                foreach (var resource in Config.IdentityResources)
+                {
+                    context.IdentityResources.Add(resource.ToEntity());
+                }
+                context.SaveChanges();
+            }
+
+            if (!context.ApiScopes.Any())
+            {
+                foreach (var resource in Config.ApiScopes)
+                {
+                    context.ApiScopes.Add(resource.ToEntity());
+                }
+                context.SaveChanges();
+            }
+        }
+    }
+
 }
+
+
+//builder.Services.AddIdentityServer(options =>
+//            {
+//                // https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/api_scopes#authorization-based-on-scopes
+//                options.EmitStaticAudienceClaim = true;
+//            })
+//            .AddInMemoryIdentityResources(Config.IdentityResources)
+//            .AddInMemoryApiScopes(Config.ApiScopes)
+//            .AddInMemoryClients(Config.Clients)
+//            .AddTestUsers(TestUsers.Users);
+
