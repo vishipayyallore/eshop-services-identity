@@ -4,6 +4,10 @@ Identity Service for the eShop solution
 
 ## Duende Identity Service
 
+**Reference(s):**
+
+> 1. [https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials](https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials)
+
 ```
 dotnet new isempty -n IdentityServer.API
 
