@@ -1,10 +1,10 @@
-﻿using System.Security.Claims;
-using IdentityModel;
-using Identity.API.Data;
+﻿using Identity.API.Data;
 using Identity.API.Models;
+using IdentityModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using System.Security.Claims;
 
 namespace Identity.API;
 
