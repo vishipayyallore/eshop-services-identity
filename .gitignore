@@ -357,3 +357,6 @@ Source/IdentityServer.API/eshop-Identity.db-wal
 /Source/IdentityServer.API/Store/eshop-Identity.db-wal
 /Source/IdentityServer.API/Store/eshop-Identity.db-shm
 /Source/IdentityServer.API/Store/eshop-Identity.db
+/Source/Identity.API/Store/AspIdUsers.db-wal
+/Source/Identity.API/Store/AspIdUsers.db-shm
+/Source/Identity.API/Store/AspIdUsers.db
