@@ -33,10 +33,11 @@ public static class Config
     public static IEnumerable<Client> Clients =>
         new List<Client>
         {
-            // machine to machine client (from quickstart 1)
+            // machine to machine client (from quickstart 1). Client Credentials Flow client
             new Client
             {
                 ClientId = "api-clientid",
+                ClientName = "Client Credentials Client",
 
                 // no interactive user, use the clientid/secret for authentication
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -50,7 +51,7 @@ public static class Config
                 // scopes that client has access to
                 AllowedScopes = { "eshopapiscope" }
             },
-            // interactive ASP.NET Core Web App
+            // interactive ASP.NET Core Web App. interactive client using Code Flow + PKCE
             new Client
             {
                 ClientId = "web-clientid",
