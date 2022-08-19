@@ -2,6 +2,21 @@
 
 Identity Service for the eShop solution
 
+## Duende Identity Service
+
+```
+dotnet new isempty -n IdentityServer.API
+
+Template Name                                               Short Name  Language  Tags
+----------------------------------------------------------  ----------  --------  ------------------
+Duende BFF with JavaScript                                  bffjs       [C#]      Web/IdentityServer
+Duende IdentityServer Empty                                 isempty     [C#]      Web/IdentityServer
+Duende IdentityServer Quickstart UI (UI assets only)        isui        [C#]      Web/IdentityServer
+Duende IdentityServer with ASP.NET Core Identity            isaspid     [C#]      Web/IdentityServer
+Duende IdentityServer with Entity Framework Stores          isef        [C#]      Web/IdentityServer
+Duende IdentityServer with In-Memory Stores and Test Users  isinmem     [C#]      Web/IdentityServer
+```
+
 ## Microsoft SQL Server in a Docker Container
 
 **Reference(s):**
@@ -59,18 +74,3 @@ CONTENT-TYPE application/x-www-form-urlencoded
 
 **SQLite as a Database Provider for Identity Service**
 ![SQLite as a Database Provider for Identity Service |150x150](./Documentation/Images/EFCore_SQLite.PNG)
-
-## Duende Identity Service
-
-```
-dotnet new isempty -n IdentityServer.API
-
-Template Name                                               Short Name  Language  Tags
-----------------------------------------------------------  ----------  --------  ------------------
-Duende BFF with JavaScript                                  bffjs       [C#]      Web/IdentityServer
-Duende IdentityServer Empty                                 isempty     [C#]      Web/IdentityServer
-Duende IdentityServer Quickstart UI (UI assets only)        isui        [C#]      Web/IdentityServer
-Duende IdentityServer with ASP.NET Core Identity            isaspid     [C#]      Web/IdentityServer
-Duende IdentityServer with Entity Framework Stores          isef        [C#]      Web/IdentityServer
-Duende IdentityServer with In-Memory Stores and Test Users  isinmem     [C#]      Web/IdentityServer
-```
