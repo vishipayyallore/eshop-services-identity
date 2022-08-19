@@ -1,52 +1,84 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
+using IdentityModel;
 
 namespace Identity.API;
 
 public static class Config
 {
+
     public static IEnumerable<IdentityResource> IdentityResources =>
         new IdentityResource[]
         {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
+
+            new IdentityResource()
+            {
+                Name = "verification",
+                UserClaims = new List<string>
+                {
+                    JwtClaimTypes.Email,
+                    JwtClaimTypes.EmailVerified
+                }
+            }
         };
 
     public static IEnumerable<ApiScope> ApiScopes =>
-        new ApiScope[]
+        new List<ApiScope>
         {
-            new ApiScope("scope1"),
-            new ApiScope("scope2"),
+            new ApiScope(name: "eshopapiscope", displayName: "eShop API")
         };
 
     public static IEnumerable<Client> Clients =>
-        new Client[]
+        new List<Client>
         {
-            // m2m client credentials flow client
+            // machine to machine client (from quickstart 1)
             new Client
             {
-                ClientId = "m2m.client",
-                ClientName = "Client Credentials Client",
+                ClientId = "api-clientid",
 
+                // no interactive user, use the clientid/secret for authentication
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
 
-                AllowedScopes = { "scope1" }
+                // secret for authentication
+                ClientSecrets =
+                {
+                    new Secret("NoPassword@1".Sha256()) /* Need to get this from Configuration */
+                },
+
+                // scopes that client has access to
+                AllowedScopes = { "eshopapiscope" }
             },
-
-            // interactive client using code flow + pkce
+            // interactive ASP.NET Core Web App
             new Client
             {
-                ClientId = "interactive",
-                ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
+                ClientId = "web-clientid",
+
+                ClientSecrets =
+                {
+                    new Secret("NoPassword@1".Sha256()) /* Need to get this from Configuration */
+                },
 
                 AllowedGrantTypes = GrantTypes.Code,
+            
+                // where to redirect to after login
+                RedirectUris = { "https://localhost:7019/signin-oidc" },
 
-                RedirectUris = { "https://localhost:44300/signin-oidc" },
-                FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-                PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
+                // where to redirect to after logout
+                PostLogoutRedirectUris = { "https://localhost:7019/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
-                AllowedScopes = { "openid", "profile", "scope2" }
-            },
+
+                AllowedScopes = new List<string>
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "verification",
+                    "eshopapiscope"
+                }
+            }
         };
+
+
 }
