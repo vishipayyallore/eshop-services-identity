@@ -360,3 +360,4 @@ Source/IdentityServer.API/eshop-Identity.db-wal
 /Source/Identity.API/Store/AspIdUsers.db-wal
 /Source/Identity.API/Store/AspIdUsers.db-shm
 /Source/Identity.API/Store/AspIdUsers.db
+/Source/Identity.API/keys/is-signing-key-A34F3B8863E36025D1EFD7CF8FEBB624.json
