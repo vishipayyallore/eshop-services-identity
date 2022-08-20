@@ -13,6 +13,8 @@ public static class Config
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
 
+            new IdentityResource("color", new [] { "favorite_color" }),
+
             new IdentityResource()
             {
                 Name = "verification",
