@@ -21,6 +21,10 @@ Duende IdentityServer with Entity Framework Stores          isef        [C#]    
 Duende IdentityServer with In-Memory Stores and Test Users  isinmem     [C#]      Web/IdentityServer
 ```
 
+```
+dotnet ef migrations add CustomProfileData
+dotnet run /seed
+```
 ## Microsoft SQL Server in a Docker Container
 
 **Reference(s):**
