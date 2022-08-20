@@ -2,7 +2,7 @@
 using Duende.IdentityServer.Models;
 using IdentityModel;
 
-namespace Identity.API;
+namespace Identity.API.Configuration;
 
 public static class Config
 {
@@ -12,6 +12,8 @@ public static class Config
         {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
+
+            new IdentityResource("color", new [] { "favorite_color" }),
 
             new IdentityResource()
             {
@@ -76,7 +78,8 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "verification",
-                    "eshopapiscope"
+                    "eshopapiscope",
+                    "color"
                 }
             }
         };

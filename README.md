@@ -4,6 +4,10 @@ Identity Service for the eShop solution
 
 ## Duende Identity Service
 
+**Reference(s):**
+
+> 1. [https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials](https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials)
+
 ```
 dotnet new isempty -n IdentityServer.API
 
@@ -17,6 +21,10 @@ Duende IdentityServer with Entity Framework Stores          isef        [C#]    
 Duende IdentityServer with In-Memory Stores and Test Users  isinmem     [C#]      Web/IdentityServer
 ```
 
+```
+dotnet ef migrations add CustomProfileData
+dotnet run /seed
+```
 ## Microsoft SQL Server in a Docker Container
 
 **Reference(s):**
