@@ -33,6 +33,9 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Add("verification");
         options.ClaimActions.MapJsonKey("email_verified", "email_verified");
 
+        options.Scope.Add("color");
+        options.ClaimActions.MapUniqueJsonKey("favorite_color", "favorite_color");
+
         options.SaveTokens = true;
     });
 
