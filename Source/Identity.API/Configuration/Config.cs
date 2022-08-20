@@ -57,6 +57,7 @@ public static class Config
             new Client
             {
                 ClientId = "web-clientid",
+                ClientName = "eShop Server Side Web Application",
 
                 ClientSecrets =
                 {
@@ -81,6 +82,26 @@ public static class Config
                     "eshopapiscope",
                     "color"
                 }
+            },
+            new Client
+            {
+                ClientName = "eShop Web Application",
+                ClientId = "eShop-webclientId",
+                AllowedGrantTypes = GrantTypes.Code,
+                RedirectUris = new List<string>{ "http://localhost:4200/signin-callback", "http://localhost:4200/assets/silent-callback.html" },
+                RequirePkce = true,
+                AllowAccessTokensViaBrowser = true,
+                AllowedScopes =
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "eshopapiscope",
+                },
+                AllowedCorsOrigins = { "http://localhost:4200" },
+                RequireClientSecret = false,
+                PostLogoutRedirectUris = new List<string> { "http://localhost:4200/signout-callback" },
+                RequireConsent = false,
+                AccessTokenLifetime = 600
             }
         };
 
