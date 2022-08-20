@@ -1,4 +1,5 @@
 ﻿using Identity.API;
+using Identity.API.Extensions;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()

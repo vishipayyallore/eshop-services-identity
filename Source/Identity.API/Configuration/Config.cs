@@ -2,7 +2,7 @@
 using Duende.IdentityServer.Models;
 using IdentityModel;
 
-namespace Identity.API;
+namespace Identity.API.Configuration;
 
 public static class Config
 {

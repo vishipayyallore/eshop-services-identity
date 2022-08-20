@@ -1,11 +1,12 @@
 using Duende.IdentityServer;
+using Identity.API.Configuration;
 using Identity.API.Data;
 using Identity.API.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
-namespace Identity.API;
+namespace Identity.API.Extensions;
 
 internal static class HostingExtensions
 {
