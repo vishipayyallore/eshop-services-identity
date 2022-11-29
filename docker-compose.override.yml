@@ -1,7 +1,16 @@
 version: '3.4'
 
 services:
+  idenmssqldb:
+    container_name: eshop-store-identity
+    restart: always
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
   identity.api:
+    container_name: eshop-services-identity
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
