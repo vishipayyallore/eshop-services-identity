@@ -1,13 +1,27 @@
 version: '3.4'
 
 services:
+  idenmssqldb:
+    container_name: eshop-store-identity
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Sample@123$"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
   identity.api:
+    container_name: eshop-services-identity
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+    depends_on:
+      - idenmssqldb
     ports:
-      - "80"
-      - "443"
+      - "8002:80"
+      - "8003:443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

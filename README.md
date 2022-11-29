@@ -8,7 +8,7 @@ Identity Service for the eShop solution
 
 > 1. [https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials](https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials)
 
-```
+```bash
 dotnet new isempty -n IdentityServer.API
 
 Template Name                                               Short Name  Language  Tags
@@ -21,10 +21,11 @@ Duende IdentityServer with Entity Framework Stores          isef        [C#]    
 Duende IdentityServer with In-Memory Stores and Test Users  isinmem     [C#]      Web/IdentityServer
 ```
 
-```
+```bash
 dotnet ef migrations add CustomProfileData
 dotnet run /seed
 ```
+
 ## Microsoft SQL Server in a Docker Container
 
 **Reference(s):**
@@ -39,7 +40,7 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourStrongPassword" -p 1433:
 
 ## Retrieving Discovery Information
 
-### Discovery Information using https://localhost:5001/.well-known/openid-configuration
+### Discovery Information using <https://localhost:5001/.well-known/openid-configuration>
 
 ![Openid Configuration |150x150](./Documentation/Images/Openid_Configuration.PNG)
 
