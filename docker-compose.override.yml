@@ -17,6 +17,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+      - "ConnectionStrings__DefaultConnection=Data Source=idenmssqldb;User ID=sa;Initial Catalog=eShop-Identity;Password=Sample@123$;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
     depends_on:
       - idenmssqldb
     ports:
