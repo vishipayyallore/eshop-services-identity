@@ -33,8 +33,10 @@ dotnet run /seed
 > 1. [https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-configure?view=sql-server-ver16&pivots=cs1-bash](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-configure?view=sql-server-ver16&pivots=cs1-bash)
 
 ```bash
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourStrongPassword" -p 1433:1433 --name identity-sqlserver --hostname identity-sqlserver -e 'MSSQL_PID=Standard' -v eshop-idensqlvolume:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2022-latest
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourStrongPassword@1" -p 1433:1433 --name identity-sqlserver --hostname identity-sqlserver -e 'MSSQL_PID=Standard' -v eshop-idensqlvolume:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2022-latest
 ```
+
+**Note:** SQL Server password policy requirements => least 8 characters long and contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Base 10 digits, and Symbols.
 
 ![Openid Configuration |150x150](./Documentation/Images/SQLServerInDockerContainer.PNG)
 

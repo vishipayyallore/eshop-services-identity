@@ -362,3 +362,4 @@ Source/IdentityServer.API/eshop-Identity.db-wal
 /Source/Identity.API/Store/AspIdUsers.db
 /Source/Identity.API/keys/is-signing-key-A34F3B8863E36025D1EFD7CF8FEBB624.json
 Source/Identity.API/keys/is-signing-key-47F3003E2CB4AFD578ACCC8E53F141C0.json
+Source/Identity.API/keys/is-signing-key-8DC5686551A2B180504D78356B139AFB.json
