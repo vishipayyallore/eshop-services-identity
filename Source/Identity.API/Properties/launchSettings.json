@@ -10,6 +10,9 @@
     },
     "Docker": {
       "commandName": "Docker",
+      "environmentVariables": {
+        "ConnectionStrings__DefaultConnection": "Data Source=172.17.0.3;User ID=sa;Initial Catalog=eShop-Identity;Password=YourStrongPassword@1;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+      },
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "publishAllPorts": true,
