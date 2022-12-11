@@ -12,6 +12,10 @@ spec:
       labels:
         app: eshop-store-identity
     spec:
+      terminationGracePeriodSeconds: 30
+      hostname: eshop-store-identity
+      securityContext:
+          fsGroup: 10001
       containers:
         - name: eshop-store-identity
           image: mcr.microsoft.com/mssql/server:2022-latest
@@ -20,11 +24,14 @@ spec:
               name: store-identity
           resources:
             requests:
-              cpu: 250m
+              memory: "512Mi"
+              cpu: "500m"
             limits:
-              cpu: 500m
-              memory: 512Mi
+              memory: "512Mi"
+              cpu: "500m"
           env:
+            - name: MSSQL_PID
+              value: "Developer"
             - name: ACCEPT_EULA
               value: "Y"
             - name: SA_PASSWORD
@@ -33,7 +40,26 @@ spec:
                   name: eshop-identity-secrets
                   key: SA_PASSWORD
                   optional: false
-            
+          volumeMounts:
+            - name: mssql-data
+              mountPath: /var/opt/mssql
+      volumes:
+      - name: mssql-data
+        persistentVolumeClaim:
+          claimName: mssql-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eshop-store-identity
+spec:
+  selector:
+    app: eshop-store-identity
+  ports:
+    - protocol: TCP
+      port: 1433
+      targetPort: 1433
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
