@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{F0011463-6B96-4B74-AE04-FB6AA084A1C2}"
 	ProjectSection(SolutionItems) = preProject
-		Deploy\A.txt = Deploy\A.txt
+		Deploy\eshop-services-identity-k8s.yml = Deploy\eshop-services-identity-k8s.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{719416B4-8B2C-4ADC-B202-89F1792D1D66}"
