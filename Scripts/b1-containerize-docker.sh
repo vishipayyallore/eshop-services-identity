@@ -10,7 +10,7 @@ TAG=latest
 VERSION_TAG=$(git log -1 --pretty=format:%h)
 echo "version tag: $VERSION_TAG"
 
-REPOSITORY=$DOCKER_USERNAME/$DOCKER_IDEN_IMAGE_NAME
+REPOSITORY=$DOCKER_USERNAME/$DOCKER_IMAGE_IDENTITY
 
 docker login
 

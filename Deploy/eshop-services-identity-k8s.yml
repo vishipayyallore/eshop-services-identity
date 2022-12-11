@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-store-identity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eshop-store-identity
+  template:
+    metadata:
+      labels:
+        app: eshop-store-identity
+    spec:
+      terminationGracePeriodSeconds: 30
+      hostname: eshop-store-identity
+      securityContext:
+          fsGroup: 10001
+      containers:
+        - name: eshop-store-identity
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          ports:
+            - containerPort: 1433
+              name: store-identity
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          env:
+            - name: MSSQL_PID
+              value: "Developer"
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: eshop-identity-secrets
+                  key: SA_PASSWORD
+                  optional: false
+          volumeMounts:
+            - name: mssql-data
+              mountPath: /var/opt/mssql
+      volumes:
+      - name: mssql-data
+        persistentVolumeClaim:
+          claimName: mssql-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eshop-store-identity
+spec:
+  selector:
+    app: eshop-store-identity
+  ports:
+    - protocol: TCP
+      port: 1433
+      targetPort: 1433
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-services-identity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eshop-services-identity
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: eshop-services-identity
+    spec:
+      containers:
+        - name: eshop-services-identity
+          image: vishipayyallore/eshop-services-identity:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 250m
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          env:
+            - name: ConnectionStrings__ConnectionString
+              valueFrom:
+                secretKeyRef:
+                  name: eshop-identity-secrets
+                  key: ConnectionStrings__ConnectionString
+                  optional: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eshop-services-identity
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: eshop-services-identity
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: eshop-identity-secrets
+data:
+  SA_PASSWORD: WW91clN0cm9uZ1Bhc3N3b3JkQDE=
+  ConnectionStrings__ConnectionString: U2VydmVyPWVzaG9wLXN0b3JlLWlkZW50aXR5O0RhdGFiYXNlPWVTaG9wLUlkZW50aXR5LXN0b3JlO1VzZXIgSWQ9c2E7UGFzc3dvcmQ9WW91clN0cm9uZ1Bhc3N3b3JkQDE7
