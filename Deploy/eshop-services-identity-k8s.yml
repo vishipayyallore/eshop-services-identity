@@ -61,16 +61,6 @@ spec:
       targetPort: 1433
   type: LoadBalancer
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: eshop-store-identity
-spec:
-  ports:
-    - port: 1433
-  selector:
-    app: eshop-store-identity
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
