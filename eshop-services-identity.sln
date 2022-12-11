@@ -28,7 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseIden.DemoWeb", "Tests\Us
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{FABE801A-89E1-4D47-ACD5-DA6771DE2846}"
 	ProjectSection(SolutionItems) = preProject
-		Scripts\A.txt = Scripts\A.txt
+		Scripts\a1-build-and-run.sh = Scripts\a1-build-and-run.sh
+		Scripts\b1-containerize-docker.sh = Scripts\b1-containerize-docker.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{A51F1BDB-5D4D-45B8-8599-1F67C8EBBA84}"
