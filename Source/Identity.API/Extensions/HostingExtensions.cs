@@ -3,6 +3,7 @@ using Identity.API.Configuration;
 using Identity.API.Data;
 using Identity.API.Models;
 using Identity.API.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -39,7 +40,14 @@ internal static class HostingExtensions
             .AddAspNetIdentity<ApplicationUser>()
             .AddProfileService<CustomProfileService>();
 
-        builder.Services.AddAuthentication()
+        builder.Services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
+                options.Secure = CookieSecurePolicy.Always;
+            });
+
+        builder.Services
+            .AddAuthentication()
             .AddGoogle(options =>
             {
                 options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
@@ -50,6 +58,14 @@ internal static class HostingExtensions
                 options.ClientId = "copy client ID from Google here";
                 options.ClientSecret = "copy client secret from Google here";
             });
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("CorsPolicy",
+                builder => builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+        });
 
         return builder.Build();
     }
@@ -63,8 +79,13 @@ internal static class HostingExtensions
             app.UseDeveloperExceptionPage();
         }
 
+        app.UseCors("CorsPolicy");
+
         app.UseStaticFiles();
         app.UseRouting();
+
+        app.UseCookiePolicy();
+
         app.UseIdentityServer();
         app.UseAuthorization();
 

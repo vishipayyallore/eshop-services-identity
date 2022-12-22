@@ -18,17 +18,17 @@ spec:
           fsGroup: 10001
       containers:
         - name: eshop-store-identity
-          image: mcr.microsoft.com/mssql/server:2022-latest
+          image: mcr.microsoft.com/mssql/server:2019-latest
           ports:
             - containerPort: 1433
               name: store-identity
           resources:
             requests:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "2G"
+              cpu: "2000m"
             limits:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "2G"
+              cpu: "2000m"
           env:
             - name: MSSQL_PID
               value: "Developer"
@@ -92,11 +92,11 @@ spec:
               cpu: 500m
               memory: 512Mi
           env:
-            - name: ConnectionStrings__ConnectionString
+            - name: ConnectionStrings__DefaultConnection
               valueFrom:
                 secretKeyRef:
                   name: eshop-identity-secrets
-                  key: ConnectionStrings__ConnectionString
+                  key: ConnectionStrings__DefaultConnection
                   optional: false
 ---
 apiVersion: v1
@@ -116,4 +116,4 @@ metadata:
   name: eshop-identity-secrets
 data:
   SA_PASSWORD: WW91clN0cm9uZ1Bhc3N3b3JkQDE=
-  ConnectionStrings__ConnectionString: U2VydmVyPWVzaG9wLXN0b3JlLWlkZW50aXR5O0RhdGFiYXNlPWVTaG9wLUlkZW50aXR5LXN0b3JlO1VzZXIgSWQ9c2E7UGFzc3dvcmQ9WW91clN0cm9uZ1Bhc3N3b3JkQDE7
+  ConnectionStrings__DefaultConnection: U2VydmVyPWVzaG9wLXN0b3JlLWlkZW50aXR5O0RhdGFiYXNlPWVTaG9wLUlkZW50aXR5LXN0b3JlO1VzZXIgSWQ9c2E7UGFzc3dvcmQ9WW91clN0cm9uZ1Bhc3N3b3JkQDE7
