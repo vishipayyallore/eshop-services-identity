@@ -3,6 +3,7 @@ using Identity.API.Configuration;
 using Identity.API.Data;
 using Identity.API.Models;
 using Identity.API.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -39,7 +40,22 @@ internal static class HostingExtensions
             .AddAspNetIdentity<ApplicationUser>()
             .AddProfileService<CustomProfileService>();
 
-        builder.Services.AddAuthentication()
+        builder.Services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
+                options.Secure = CookieSecurePolicy.Always;
+            });
+
+        builder.Services.Configure<CookieAuthenticationOptions>(
+            IdentityServerConstants.DefaultCookieAuthenticationScheme, options =>
+        {
+            options.Cookie.SameSite = SameSiteMode.None;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+            options.Cookie.IsEssential = true;
+        });
+
+        builder.Services
+            .AddAuthentication()
             .AddGoogle(options =>
             {
                 options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
@@ -75,6 +91,9 @@ internal static class HostingExtensions
 
         app.UseStaticFiles();
         app.UseRouting();
+
+        app.UseCookiePolicy();
+
         app.UseIdentityServer();
         app.UseAuthorization();
 
