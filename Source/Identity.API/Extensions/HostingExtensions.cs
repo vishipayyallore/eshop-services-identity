@@ -46,22 +46,8 @@ internal static class HostingExtensions
                 options.Secure = CookieSecurePolicy.Always;
             });
 
-        builder.Services.Configure<CookieAuthenticationOptions>(
-            IdentityServerConstants.DefaultCookieAuthenticationScheme, options =>
-        {
-            options.Cookie.SameSite = SameSiteMode.None;
-            options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-            options.Cookie.IsEssential = true;
-        });
-
         builder.Services
             .AddAuthentication()
-            .AddCookie("idsrv.session", options =>
-            {
-                options.Cookie.SameSite = SameSiteMode.None;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-                options.Cookie.IsEssential = true;
-            })
             .AddGoogle(options =>
             {
                 options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
