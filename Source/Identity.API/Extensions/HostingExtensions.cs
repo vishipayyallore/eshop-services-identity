@@ -3,7 +3,6 @@ using Identity.API.Configuration;
 using Identity.API.Data;
 using Identity.API.Models;
 using Identity.API.Services;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;

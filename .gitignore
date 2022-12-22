@@ -348,9 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-Source/IdentityServer.API/keys/is-signing-key-EC0CF8FEAB6AA9BEBECA8D9EDE8DCE5C.json
-/Source/IdentityServer.API/keys/is-signing-key-FF350E2659525EE6DED04F154349324F.json
-/Source/IdentityServer.API/keys/is-signing-key-CC63A1E37106608E82B6060A7ECD7EB3.json
 Source/IdentityServer.API/eshop-Identity.db
 Source/IdentityServer.API/eshop-Identity.db-shm
 Source/IdentityServer.API/eshop-Identity.db-wal
@@ -360,9 +357,5 @@ Source/IdentityServer.API/eshop-Identity.db-wal
 /Source/Identity.API/Store/AspIdUsers.db-wal
 /Source/Identity.API/Store/AspIdUsers.db-shm
 /Source/Identity.API/Store/AspIdUsers.db
-/Source/Identity.API/keys/is-signing-key-A34F3B8863E36025D1EFD7CF8FEBB624.json
-Source/Identity.API/keys/is-signing-key-47F3003E2CB4AFD578ACCC8E53F141C0.json
-Source/Identity.API/keys/is-signing-key-8DC5686551A2B180504D78356B139AFB.json
-Source/Identity.API/keys/is-signing-key-BD4861BABBB13D2111F73B67957EC991.json
-Source/Identity.API/keys/is-signing-key-3D4913141C76153B0B5DA71ECC51BC6C.json
-/Source/Identity.API/keys/is-signing-key-EF10161C96F169857034AC85BACEA895.json
+
+/Source/Identity.API/keys/**
